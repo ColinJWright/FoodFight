@@ -6,13 +6,23 @@ const UP = Vector3(0,1,0)
 var motion = Vector3()
 var movement_state = 0 # idle is 0, run is 1
 
+export var mouse_sensitivity = 1200
+
 const MIN_BLEND_SPEED = 0.125
 const BLEND_TO_RUN = 0.075
 const BLEND_TO_IDLE = 0.1
 
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func _physics_process(delta):
 	move()
 	animate()
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotation = h_camera_rotation(-event.relative.x / mouse_sensitivity)
+		$Camera.rotation = v_camera_rotation(-event.relative.y / mouse_sensitivity)
 
 func move():
 	var x = Input.get_action_strength("forward") - Input.get_action_strength("back")
@@ -26,7 +36,7 @@ func move():
 	move_and_slide(motion * SPEED, UP)
 
 func face_forward(x,z):
-	rotation.y = atan2(x, z)
+	$Armature.rotation.y = atan2(x, z) - PI/2
 
 func animate():
 	if (motion * SPEED).length() > MIN_BLEND_SPEED:
@@ -38,3 +48,11 @@ func animate():
 	
 	var animation = $Armature/AnimationTree
 	animation["parameters/Move/blend_amount"] = movement_state
+
+func h_camera_rotation(camera_rotation):
+	return rotation + Vector3(0, camera_rotation, 0)
+
+func v_camera_rotation(camera_rotation):
+	var rot = $Camera.rotation + Vector3(camera_rotation, 0, 0)
+	rot.x = clamp(rot.x, PI/-8, PI/8)
+	return rot
