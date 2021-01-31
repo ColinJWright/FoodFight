@@ -116,4 +116,4 @@ transform = Transform( 0.707008, 0, 0.707206, -0.380502, 0.842922, 0.380395, -0.
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0.248831, 0 )
