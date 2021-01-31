@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Models/Architecture/floorFull.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
 [ext_resource path="res://Models/Furniture/deskCorner.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://Scenes/Characters/Players/PlayerM.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( 0, 0.25, 0, 0, 0, 0, 0, 0.25, 5, 0, 0, 5, 0, 0.25, 0, 0, 0.25, 5, -5, 0.25, 0, -5, 0.25, 5, 0, 0, 5, 0, 0, 0, -5, 0, 5, -5, 0, 0, 0, 0, 5, -5, 0, 5, 0, 0.25, 5, -5, 0.25, 5, -5, 0, 0, 0, 0, 0, -5, 0.25, 0, 0, 0.25, 0, -5, 0, 0, -5, 0.25, 0, -5, 0, 5, -5, 0.25, 5 )
@@ -46,18 +47,17 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="Floor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999943, 0.0106987, 0, -0.0106987, 0.999943, 0, 3, 37.1344 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -35, 3, 0 )
 environment = ExtResource( 2 )
 current = true
 
 [node name="Furniture" type="Node" parent="."]
 
 [node name="Desk" type="RigidBody" parent="Furniture"]
-transform = Transform( 0.0802684, 0, -0.996773, 0, 1, 0, 0.996773, 0, 0.0802684, -5.92324, 4.90217, 23.4833 )
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, -25, 3, -3 )
 mass = 25.5102
 
 [node name="deskCorner" type="MeshInstance" parent="Furniture/Desk"]
@@ -114,3 +114,6 @@ shape = SubResource( 11 )
 [node name="DirectionalLight" type="DirectionalLight" parent="Lighting"]
 transform = Transform( 0.707008, 0, 0.707206, -0.380502, 0.842922, 0.380395, -0.596119, -0.538035, 0.595953, 19.436, 13.6492, 38.8654 )
 shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0 )
