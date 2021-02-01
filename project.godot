@@ -19,6 +19,10 @@ config/name="Food Fight"
 run/main_scene="res://Scenes/Levels/Level1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+FileGrabber="*res://Utility/file_grabber.gd"
+
 [input]
 
 forward={

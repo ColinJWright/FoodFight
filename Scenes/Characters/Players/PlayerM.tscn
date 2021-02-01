@@ -15,4 +15,5 @@ transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08
 
 [node name="Camera" type="Camera" parent="." index="3"]
 transform = Transform( -1, -6.77462e-08, 3.18721e-07, 0, 0.978148, 0.207912, -3.25841e-07, 0.207912, -0.978148, 0, 2.5, -3 )
+doppler_tracking = 2
 current = true
