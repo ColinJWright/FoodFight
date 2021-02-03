@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Bystanders/BystanderSpawner.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1, 1, 1 )
+
+[node name="BystanderSpawner" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Forward" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

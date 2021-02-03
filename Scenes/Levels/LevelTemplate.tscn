@@ -22,6 +22,8 @@ shape = SubResource( 1 )
 
 [node name="Furniture" type="Node" parent="."]
 
+[node name="Spawner" type="Node" parent="."]
+
 [node name="Lighting" type="Node" parent="."]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Lighting"]
