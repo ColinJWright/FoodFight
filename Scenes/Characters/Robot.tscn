@@ -11,8 +11,25 @@ script = ExtResource( 3 )
 [node name="MeshInstance" parent="." index="0"]
 visible = false
 
+[node name="Forward" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.28447, 1 )
+
 [node name="RobotArmature" parent="." index="4" instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+bones/1/bound_children = [ NodePath("BoneAttachment002") ]
+bones/2/bound_children = [ NodePath("BoneAttachment011") ]
+bones/7/bound_children = [ NodePath("BoneAttachment004") ]
+bones/8/bound_children = [ NodePath("BoneAttachment009") ]
+bones/9/bound_children = [ NodePath("BoneAttachment") ]
+bones/10/bound_children = [ NodePath("BoneAttachment3") ]
+bones/22/bound_children = [ NodePath("BoneAttachment010") ]
+bones/23/bound_children = [ NodePath("BoneAttachment001") ]
+bones/24/bound_children = [ NodePath("BoneAttachment2") ]
+bones/37/bound_children = [ NodePath("BoneAttachment005") ]
+bones/38/bound_children = [ NodePath("BoneAttachment007") ]
+bones/39/bound_children = [ NodePath("BoneAttachment003") ]
+bones/41/bound_children = [ NodePath("BoneAttachment006") ]
+bones/42/bound_children = [ NodePath("BoneAttachment008") ]
 
 [node name="AnimationPlayer" parent="RobotArmature" index="0"]
 autoplay = "Robot_Running"
@@ -60,7 +77,7 @@ transform = Transform( -0.00985826, -2.69916e-07, 0.999951, 0.999951, 7.59959e-0
 transform = Transform( 1, 7.15256e-07, 0, 0, 0, -1, -7.15256e-07, 1, 0, 0.00205059, 1.44057, 0.112672 )
 
 [node name="RayCast" type="RayCast" parent="." index="5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50608, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11523, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, 50 )
 collision_mask = 2
